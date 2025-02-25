@@ -17,7 +17,7 @@ function addtask() {
     btn.hidden = true;
   }
 
-  if (task.value) {
+if (task.value) {
     var ul = document.createElement("ul");
      let taskId = `btn_${numbtn}`;
        add.innerHTML += `
@@ -29,7 +29,6 @@ function addtask() {
     numbtn++;
     task.value = "";
   }
-
   del.addEventListener("click", () => {
     add.innerHTML = "";
     btn.hidden = true;
@@ -37,13 +36,16 @@ function addtask() {
 
 }
 
-function deltask(id) {
+task.addEventListener("keypress",(event)=>{
+  if(event.key === "Enter"){
+    addtask();
+  }
+})
 
+
+function deltask(id) {
   var list = document.getElementById(id);
   if(list){
     list.remove();
-  
   }
-  
-  
 }
